@@ -1,41 +1,53 @@
+#include <math.h>
+#include <memory.h>
+
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
 
 class Solution {
- public:
-  vector<string> generateParenthesis(int n) {
-    vector<string> result;
-    if (n == 0)
-      result.push_back("");
-    else
-      for (size_t i = 0; i < n; i++) {
-        vector<string> lefts = generateParenthesis(i);
-         size_t sizeL = lefts.size();
-        for (size_t j = 0; j < sizeL; j++) {
-          vector<string> rights = generateParenthesis(n-i-1);
-          size_t sizeR =rights.size();
-          for (size_t k = 0; k < sizeR; k++)
-          result.push_back("(" + lefts[j] + ")" + rights[k]);
-        }
-      }
+   public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string cpref = "";
+        size_t l = strs.size();
 
-    return result;
-  }
+        size_t j = 0;
+        while (true) {
+            if (j == strs[0].length())
+                break;
+
+            char d = strs[0][j];
+            for (size_t i = 1; i < l; i++) {
+                if (j == strs[i].length() || strs[i][j] != d) {
+                    return cpref;
+                }
+            }
+            cpref += d;
+
+            j++;
+        }
+
+        return cpref;
+    }
 };
 
 int main() {
-  int input;
-  cin >> input;
+    Solution* s = new Solution();
 
-  cout << endl;
+    int input;
+    cin >> input;
 
-  Solution s;
+    vector<string> strs;
 
-  vector<string> result = s.generateParenthesis(input);
-  for (size_t i = 0; i < result.size(); i++) {
-    cout << result[i] << endl;
-  }
-  return 0;
+    for (size_t i = 0; i < input; i++) {
+        string s;
+        cin >> s;
+        strs.push_back(s);
+    }
+
+    cout << s->longestCommonPrefix(strs) << endl;
+
+    return 0;
 }
