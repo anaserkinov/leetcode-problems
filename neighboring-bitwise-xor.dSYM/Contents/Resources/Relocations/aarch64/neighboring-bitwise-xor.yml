@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/anas/CProjects/leetcode-problems/neighboring-bitwise-xor'
-relocations:     []
-...
