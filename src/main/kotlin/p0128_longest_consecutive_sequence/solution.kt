@@ -1,18 +1,27 @@
 package p0128_longest_consecutive_sequence
 
+import kotlin.math.max
+
 class Solution {
-    fun longestConsecutive(nums: IntArray): Int {
-        if (nums.size < 2) return nums.size
+    fun lengthOfLongestSubstring(s: String): Int {
+        if (s.length <= 1) return s.length
 
-        val set = HashSet<Int>()
-        nums.forEach { set.add(it) }
+        val set = HashSet<Char>()
 
-        var result = 0
-        nums.forEach {
-            if (!set.contains(it - 1)){
-                var c = 1
-                while (set.contains(it + c)){ c ++ }
-                if (c > result) result = c
+        var l = 0
+        set.add(s[l])
+
+        var result = 1
+        (1 until s.length).forEach {  r ->
+            val c = s[r]
+            if (set.contains(c)){
+                set.remove(s[l++])
+                while (set.contains(s[l])){
+                    set.remove(s[l++])
+                }
+            } else {
+                set.add(c)
+                result = max(result, set.size)
             }
         }
 

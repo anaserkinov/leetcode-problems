@@ -6,43 +6,34 @@ using namespace std;
 
 class Solution {
    public:
-    int longestConsecutive(vector<int>& nums) {
-        unordered_set<int> set;
-        for (int n : nums) {
-            set.insert(n);
-        }
+    int lengthOfLongestSubstring(string s) {        
+        int m = 0,  length = s.length();
+        int array[128];
+        for (size_t i = 0; i < 128; i++){ array[i] = -1; }
+        
+        int left = 0;
 
-        int result = 0;
-        for (int n : nums) {
-            if (!set.count(n - 1)) {
-                int l = 1;
-                while (set.count(++n)) {
-                    l++;
-                }
-                if (l > result)
-                    result = l;
+        for (int i = 0; i < length; i++) {
+            int pre = array[s[i]];
+            if (pre >= left){
+                left = pre + 1;
             }
+            m = max(m, i - left + 1);
+            array[s[i]] = i;
         }
 
-        return result;
+        return m;
     }
 };
+
 
 int main() {
     Solution* s = new Solution();
 
-    int count;
-    cin >> count;
+    string input;
+    cin >> input;
 
-    vector<int> vec;
-
-    for (size_t i = 0; i < count; i++) {
-        int l;
-        cin >> l;
-        vec.push_back(l);
-    }
-
-    auto res = s->longestConsecutive(vec);
+    auto res = s->lengthOfLongestSubstring(input);
 
     cout << endl
          << res << endl;
