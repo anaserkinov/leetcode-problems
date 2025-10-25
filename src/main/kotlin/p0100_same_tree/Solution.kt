@@ -1,8 +1,5 @@
 package p0100_same_tree
 
-import p0102_binary_tree_level_order_traversal.TreeNode
-
-
 class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null

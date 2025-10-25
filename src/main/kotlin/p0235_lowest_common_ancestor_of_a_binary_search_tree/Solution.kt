@@ -1,8 +1,5 @@
 package p0235_lowest_common_ancestor_of_a_binary_search_tree
 
-import p0102_binary_tree_level_order_traversal.TreeNode
-
-
 class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null

@@ -1,6 +1,5 @@
 package p0110_balanced_binary_tree
 
-import p0102_binary_tree_level_order_traversal.TreeNode
 import kotlin.math.abs
 import kotlin.math.max
 

@@ -1,6 +1,5 @@
 package p0543_diameter_of_binary_tree
 
-import p0102_binary_tree_level_order_traversal.TreeNode
 import kotlin.math.max
 
 class TreeNode(var `val`: Int) {
