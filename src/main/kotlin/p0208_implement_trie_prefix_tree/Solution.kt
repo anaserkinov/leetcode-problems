@@ -1,7 +1,5 @@
 package p0208_implement_trie_prefix_tree
 
-import p0211_design_add_and_search_words_data_structure.Tree
-
 class Tree{
     val children = Array<Tree?>(26) { null }
     var isWord = false
