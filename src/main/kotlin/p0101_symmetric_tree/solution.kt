@@ -1,0 +1,20 @@
+package p0101_symmetric_tree
+
+import p0112_path_sum.TreeNode
+
+class TreeNode(var `val`: Int) {
+    var left: TreeNode? = null
+    var right: TreeNode? = null
+}
+
+class Solution {
+    fun isSymmetric(root: TreeNode?): Boolean {
+        fun isSymmetric(left: TreeNode?, right: TreeNode?): Boolean {
+            if (left?.`val` != right?.`val`) return false
+            return left == null ||
+                    isSymmetric(left.left, right!!.right) &&
+                    isSymmetric(left.right, right.left)
+        }
+        return isSymmetric(root!!.left, root.right)
+    }
+}
