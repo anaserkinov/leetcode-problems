@@ -1,5 +1,7 @@
 package p0112_path_sum
 
+import p0113_path_sum_II.TreeNode
+
 class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
     var right: TreeNode? = null

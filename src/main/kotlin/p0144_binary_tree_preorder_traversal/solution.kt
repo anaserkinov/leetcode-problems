@@ -1,6 +1,6 @@
-package p0094_binary_tree_inorder_traversal
+package p0144_binary_tree_preorder_traversal
 
-import p0113_path_sum_II.TreeNode
+import p0145_binary_tree_postorder_traversal.TreeNode
 import java.util.LinkedList
 
 class TreeNode(var `val`: Int) {
@@ -9,12 +9,12 @@ class TreeNode(var `val`: Int) {
 }
 
 class Solution {
-    fun inorderTraversal(root: TreeNode?): List<Int> {
+    fun preorderTraversal(root: TreeNode?): List<Int> {
         val result = LinkedList<Int>()
         fun dfs(root: TreeNode?){
             if (root == null) return
+            result.add(root.`val`)
             dfs(root.left)
-            result.addLast(root.`val`)
             dfs(root.right)
         }
         dfs(root)

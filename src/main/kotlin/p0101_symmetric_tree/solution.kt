@@ -1,6 +1,6 @@
 package p0101_symmetric_tree
 
-import p0112_path_sum.TreeNode
+import p0113_path_sum_II.TreeNode
 
 class TreeNode(var `val`: Int) {
     var left: TreeNode? = null
