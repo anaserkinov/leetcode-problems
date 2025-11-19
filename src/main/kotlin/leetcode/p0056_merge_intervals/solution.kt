@@ -1,6 +1,5 @@
 package leetcode.p0056_merge_intervals
 
-import leetcode.p0435_non_overlapping_intervals.Solution
 import kotlin.math.max
 
 class Solution {
@@ -21,15 +20,4 @@ class Solution {
 
         return result.toTypedArray()
     }
-}
-
-fun main() {
-    Solution()
-        .merge(
-            arrayOf(
-                intArrayOf(1,4),
-                intArrayOf(0,2),
-                intArrayOf(3,5)
-            )
-        )
 }
