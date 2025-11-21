@@ -2,22 +2,23 @@ package leetcode.p0049_group_anagrams
 
 class Solution {
 
-    private fun wordHashCode(str: String) = IntArray(26).also { array ->
-        str.forEach { array[it.code - 97]++ }
-    }.contentHashCode()
-
     fun groupAnagrams(strs: Array<String>): List<List<String>> {
         if (strs.size == 1) return listOf(listOf(strs.first()))
 
+        val array = IntArray(26)
         val hashMap = HashMap<Int, ArrayList<String>>()
-        hashMap[wordHashCode(strs.first())] = arrayListOf(strs.first())
 
-        for (i in 1 until strs.size){
-            val str = strs[i]
-            val hashCode = wordHashCode(str)
-            hashMap[hashCode]?.add(str) ?: run {
-                hashMap[hashCode] = arrayListOf(str)
+
+        for (element in strs){
+            for (i in 0 until 26) array[i] = 0
+            element.forEach { array[it.code - 97]++ }
+            val hashCode = array.contentHashCode()
+            var list = hashMap[hashCode]
+            if (list == null){
+                list = ArrayList()
+                hashMap[hashCode] = list
             }
+            list.add(element)
         }
 
         return hashMap.values.toList()
