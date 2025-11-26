@@ -40,13 +40,3 @@ class Solution {
         return 0.0
     }
 }
-
-fun main() {
-    println(
-        Solution()
-            .findMedianSortedArrays(
-                intArrayOf(1,2,3),
-                intArrayOf(2,3)
-            )
-    )
-}
